@@ -1,0 +1,8 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <!-- <dimen name="offline_map_header_bar_title_size">16dp</dimen> -->
+   <!-- <dimen name="offline_map_manager_title_size">16dp</dimen> -->
+</resources>

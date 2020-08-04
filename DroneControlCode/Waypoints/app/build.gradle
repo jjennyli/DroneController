@@ -1,0 +1,73 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+
+    defaultConfig {
+        ndk {
+            abiFilters 'armeabi-v7a'
+        }
+        applicationId "com.dji.GSDemo.GoogleMap"
+        minSdkVersion 19
+        //noinspection OldTargetApis
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        //Enabling multiDex supports
+        multiDexEnabled true //Mention in the doc
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+    }
+
+    //Mention in the doc
+    dexOptions {
+        incremental = true
+        preDexLibraries = false
+        javaMaxHeapSize "4g" // 2g should be also OK
+    }
+
+    packagingOptions{
+        doNotStrip "*/*/libdjivideo.so"
+        doNotStrip "*/*/libSDKRelativeJNI.so"
+        doNotStrip "*/*/libFlyForbid.so"
+        doNotStrip "*/*/libduml_vision_bokeh.so"
+        doNotStrip "*/*/libyuv2.so"
+        doNotStrip "*/*/libGroudStation.so"
+        doNotStrip "*/*/libFRCorkscrew.so"
+        doNotStrip "*/*/libUpgradeVerify.so"
+        doNotStrip "*/*/libFR.so"
+        doNotStrip "*/*/libDJIFlySafeCore.so"
+        doNotStrip "*/*/libdjifs_jni.so"
+        doNotStrip "*/*/libsfjni.so"
+        exclude 'META-INF/rxjava.properties'
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile 'com.google.android.gms:play-services:10.2.1'
+    compile 'com.android.support:appcompat-v7:28.0.0'
+    compile 'com.android.support:support-v4:28.0.0'
+    compile 'com.android.support:mediarouter-v7:28.0.0'
+    compile 'com.android.support:design:28.0.0'
+
+    compile 'com.google.android.gms:play-services-ads:10.2.1'
+
+    compile 'com.google.android.gms:play-services-auth:10.2.1'
+
+    compile 'com.google.android.gms:play-services-gcm:10.2.1'
+    compile 'com.android.support:multidex:1.0.3'
+
+    compile ('com.dji:dji-sdk:4.10')
+    provided ('com.dji:dji-sdk-provided:4.10')
+}
