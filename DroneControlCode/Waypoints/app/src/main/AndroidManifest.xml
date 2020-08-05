@@ -45,7 +45,6 @@
         tools:replace="android:appComponentFactory"
         android:appComponentFactory="whateverString">
 
-
     <!-- DJI SDK -->
 
         <uses-library android:name="com.android.future.usb.accessory" />
