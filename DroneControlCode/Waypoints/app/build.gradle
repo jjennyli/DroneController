@@ -30,6 +30,7 @@ android {
 
     //Mention in the doc
     dexOptions {
+        incremental = true
         preDexLibraries = false
         javaMaxHeapSize "4g" // 2g should be also OK
     }
@@ -52,21 +53,21 @@ android {
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-    testImplementation 'junit:junit:4.12'
-    implementation 'com.google.android.gms:play-services:10.2.1'
-    implementation 'com.android.support:appcompat-v7:28.0.0'
-    implementation 'com.android.support:support-v4:28.0.0'
-    implementation 'com.android.support:mediarouter-v7:28.0.0'
-    implementation 'com.android.support:design:28.0.0'
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile 'com.google.android.gms:play-services:10.2.1'
+    compile 'com.android.support:appcompat-v7:28.0.0'
+    compile 'com.android.support:support-v4:28.0.0'
+    compile 'com.android.support:mediarouter-v7:28.0.0'
+    compile 'com.android.support:design:28.0.0'
 
-    implementation 'com.google.android.gms:play-services-ads:10.2.1'
+    compile 'com.google.android.gms:play-services-ads:10.2.1'
 
-    implementation 'com.google.android.gms:play-services-auth:10.2.1'
+    compile 'com.google.android.gms:play-services-auth:10.2.1'
 
-    implementation 'com.google.android.gms:play-services-gcm:10.2.1'
-    implementation 'com.android.support:multidex:1.0.3'
+    compile 'com.google.android.gms:play-services-gcm:10.2.1'
+    compile 'com.android.support:multidex:1.0.3'
 
-    implementation ('com.dji:dji-sdk:4.10')
-    compileOnly ('com.dji:dji-sdk-provided:4.10')
+    compile ('com.dji:dji-sdk:4.10')
+    provided ('com.dji:dji-sdk-provided:4.10')
 }
